@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160618065425) do
     t.text     "address"
     t.string   "phone"
     t.string   "org_number"
-    t.boolean  "active"
+    t.boolean  "active",                 default: true
     t.integer  "restaurant_category_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "restaurants", ["restaurant_category_id"], name: "index_restaurants_on_restaurant_category_id", using: :btree
