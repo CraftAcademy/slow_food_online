@@ -1,0 +1,37 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/yanzhang/Documents/CraftAcademy/slow_food_online/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/yanzhang/Documents/CraftAcademy/slow_food_online/app/models/restaurant_category.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/yanzhang/Documents/CraftAcademy/slow_food_online/app/models/restaurant.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/yanzhang/Documents/CraftAcademy/slow_food_online/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1466251097
+  }
+}

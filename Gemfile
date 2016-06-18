@@ -15,6 +15,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'coveralls', require: false
+  gem 'simplecov', git: 'https://github.com/colszowka/simplecov'
 end
 
 group :development do
