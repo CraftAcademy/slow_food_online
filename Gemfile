@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
@@ -14,10 +15,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'coveralls', require: false
+  gem 'simplecov', git: 'https://github.com/colszowka/simplecov'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-

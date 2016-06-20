@@ -9,6 +9,7 @@ development:
   database: slow_food_online_development
 
 test:
+test: &test
   <<: *default
   database: slow_food_online_test
 
@@ -17,3 +18,8 @@ production:
   database: slow_food_online_production
   username: slow_food_online
   password: <%= ENV['SLOW_FOOD_ONLINE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SLOW_FOOD_ONLINE_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
+
