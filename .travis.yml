@@ -1,4 +1,6 @@
 language: ruby
+node_js:
+  - "0.10"
 notifications:
   email: false
 rvm:
@@ -9,6 +11,9 @@ cache:
 addons:
   postgresql: '9.4'
 before_install:
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - npm install -g bower
+  - bower install
   - sudo apt-get update -qq
   - sudo apt-get install -qq postgresql-server-dev-9.4 libpq-dev
 before_script:
