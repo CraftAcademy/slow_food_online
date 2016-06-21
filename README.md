@@ -32,9 +32,25 @@ and delivery of this project.
 * [Coveralls](https://coveralls.io/)
 * [Travis CI](https://travis-ci.org/)
 
+## Installing
+Fork and Clone this repo.
+
+Once the source is on your machine run the following commands to install all the necessary packages and gems
+
+```
+$ bundle install
+$ bower install
+
+$ rake db:create
+$ rake db:migrate
+$ rake db:seed
+```
+
 ## Collaborators
 **Core team**: 
-[Yan](https://github.com/flamesoft), [Daniel](https://github.com/DanielitoAlbinsson), [Carl-Philip](https://github.com/callea2)
+* [Yan](https://github.com/flamesoft)
+* [Daniel](https://github.com/DanielitoAlbinsson)
+* [Carl-Philip](https://github.com/callea2)
 
-
-[Raoul](https://github.com/diraulo), [Thomas](https://github.com/tochman)
+* [Raoul](https://github.com/diraulo)
+* [Thomas](https://github.com/tochman)

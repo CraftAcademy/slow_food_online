@@ -7,3 +7,4 @@
 /spec/tmp
 capybara-*.html
 coverage
+vendor/assets/bower_components/
