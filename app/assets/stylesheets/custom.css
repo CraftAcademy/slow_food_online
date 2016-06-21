@@ -1,0 +1,11 @@
+.box{
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+        border: 1px solid #000;
+    }
+    .french{ background: #ff0000; }
+    .thai{ background: #00ff00; }
+    .japanese{ background: #0000ff; }
+    .italian{background: #ffffff;}
+    .american{background: #666;}

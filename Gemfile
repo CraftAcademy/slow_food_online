@@ -12,7 +12,7 @@ gem 'devise'
 gem 'cancancan'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
@@ -20,6 +20,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'coveralls', require: false
   gem 'simplecov', git: 'https://github.com/colszowka/simplecov'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :development do

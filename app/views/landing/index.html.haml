@@ -1,0 +1,11 @@
+%h1 What do you feel like tonight?
+%div
+  %p Choose category
+  = form_tag(search_restaurants_path) do
+    = select_tag(:category, options_for_select(categories_for_select))
+    = submit_tag 'Send'
+  #selection
+  - if @restaurants
+    - @restaurants.each do |restaurant|
+      %p
+        = restaurant.name
