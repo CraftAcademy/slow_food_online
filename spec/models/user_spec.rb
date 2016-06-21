@@ -5,6 +5,11 @@ RSpec.describe User, type: :model do
     expect(FactoryGirl.create(:user)).to be_valid
   end
 
+  it 'is a customer by default' do
+    expect(subject.role).to eq 'customer'
+  end
+
+
   describe 'DB table' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :username }
