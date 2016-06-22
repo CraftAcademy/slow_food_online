@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
     expect(subject.role).to eq 'customer'
   end
 
-
   describe 'DB table' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :username }
@@ -17,17 +16,22 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Relationships' do
-    it {is_expected.to have_one :restaurant}
+    it { is_expected.to have_one :restaurant }
   end
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of(:username) }
     it { is_expected.to validate_uniqueness_of(:username) }
     it { is_expected.to validate_presence_of(:role) }
+
+    context 'Validate email' do
+      it { is_expected.to allow_value('user@example.com').for(:email) }
+      it { is_expected.not_to allow_value('user@example').for(:email) }
+      it { is_expected.not_to allow_value('123@123').for(:email) }
+    end
   end
 
   describe '#role' do
-
     it 'is a customer by default' do
       expect(subject.role).to eq 'customer'
     end

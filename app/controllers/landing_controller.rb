@@ -5,6 +5,7 @@ class LandingController < ApplicationController
   end
 
   def search_restaurants
-    redirect_to action: :index, category: params[:category]
+    @restaurants = Restaurant.where(restaurant_category: params[:category]) if params[:category]
+    render json: {matches: @restaurants}
   end
 end

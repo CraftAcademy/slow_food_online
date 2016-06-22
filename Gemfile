@@ -7,10 +7,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'faker'
-gem 'haml-rails' #Template engine
+gem 'haml-rails' # Template engine
 gem 'devise'
 gem 'cancancan'
-gem 'foundation-rails'
+# gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry-rails'
