@@ -18,7 +18,7 @@
 
 
 function fixedFooter() {
-    var footer = $("#footer"); //or your footer class
+    var footer = $(".footer"); //or your footer class
     height = footer.height();
     paddingTop = parseInt(footer.css('padding-top'), 10);
     paddingBottom = parseInt(footer.css('padding-bottom'), 10);
