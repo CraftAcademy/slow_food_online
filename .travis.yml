@@ -1,6 +1,8 @@
 language: ruby
 notifications:
   email: false
+  slack:
+    secure: LyKfw9bww//hVnYCJS0xMR5c1He2Ibmyory7tIx5Y8RzNJ/efornMyivjE8AeFm3kjjP/AmPENKWFKr4PKmh+FHIxy533PLO9vPHUbo8aVLWrpirdIfABlWjHd+1skI0MWffveRHUF+Vbia6Vx6laNugoPgtyXT5ma0CoaDS4BP4YOzdmicHs15fWkzTWHqfjZYTV/Ks3jhL6VtMS25PyOtLrPCyiSCeb7qhPueGty+foz6NNhIv9uM8pekSrL5R2REeBV5og/2hla3XGEYuwtLVBieanQekvE8heNfVnBYxH2r/1ZzaEUKyiRVKF7DSP6pFDEE06hRO/mBKJ4gpbd9bCKc64EttinGjRof0BhIBXe4wlYjnSFXVLFNxdOqIW3j+1QY+ooAVit0KVtz1fClug78dhg5Dl47j2oIyPtSwNEwaJjLnjOfcrpbRwH722eIGkZMOuoDTB0KiXcUemROAdRjpEiE0vU7Y2IVLDjor6r7RZSIgQzvHMjYH7t1mSC5XebT+5H9AA4/RbHGhi/+Xy98JWM8s9qQsL24eEsvWlfmXbm40fWGVCg4/Bv/9IPBvXOxRlM2WVWS3H/6xeAP4T426ZDUf5Je5ee0nfiaRUxanBQLel+t/igNZUs3Ya3W7oNcqY5ZqK/R/J9GkJ0ouV7feDQ5F02wKAzxavIE=
 rvm:
   - 2.3.1
 cache:
@@ -24,5 +26,5 @@ deploy:
   app: sf-development
   on: development
   run:
-    - 'rake db:migrate'
-    - 'rake db:seed'
+    - rake db:migrate
+    - rake db:seed
