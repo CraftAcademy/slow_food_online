@@ -24,7 +24,6 @@ Feature: As a visitor
     Given I am on the "home page"
     When I select "Samoan" from "category"
     Then I should see "You have selected Samoan"
-    And I click "Send"
     And I should see "Calles Kitchen"
     And I should see "Pizza Place"
 
@@ -33,5 +32,4 @@ Feature: As a visitor
     Given I am on the "home page"
     When I select "Chinese" from "category"
     Then I should see "You have selected Chinese"
-    And I click "Send"
     And I should see "China Palace"
