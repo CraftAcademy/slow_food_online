@@ -1,0 +1,46 @@
+%nav.menu
+  %h1.name
+    %i.fi-widget
+    TOP GEAR
+  %ul.inline-list
+    %li
+      %a{:href => "#"} Home
+    %li.active
+      %a{:href => "#"} Blog
+    %li
+      %a{:href => "#"} Pricing
+  %ul.inline-list.hide-for-small-only.account-action
+    %li
+      %a{"data-reveal-id" => "myModal", :href => "#"} Login
+    %li
+      %a.signup{"data-reveal-id" => "myModal", :href => "#"} Signup
+  %a.account.hide-for-medium-up{"data-reveal-id" => "myModal", :href => "#"}
+    %i.fi-unlock
+
+/ modal content
+#myModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "login or sign up", "data-reveal" => "", :role => "dialog"}
+  .row
+    .large-6.columns.auth-plain
+      .signup-panel.left-solid
+        %p.welcome Registered Users
+        %form
+          .row.collapse
+            .small-2.columns
+              %span.prefix
+                %i.fi-torso-female
+            .small-10.columns
+              %input{:placeholder => "username", :type => "text"}
+          .row.collapse
+            .small-2.columns
+              %span.prefix
+                %i.fi-lock
+            .small-10.columns
+              %input{:placeholder => "password", :type => "text"}
+        %a.button{:href => "#"} Log In
+    .large-6.columns.auth-plain
+      .signup-panel.newusers
+        %p.welcome New User?
+        %p By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.
+        %br
+          %a.button{:href => "#"} Sign Up
+  %a.close-reveal-modal{"aria-label" => "Close"} ×
