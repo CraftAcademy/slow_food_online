@@ -9,7 +9,7 @@
   = render partial: 'layouts/header'
   .row
     = yield
-
+  = render partial: 'layouts/footer'
   = javascript_include_tag 'http://cdn.foundation5.zurb.com/foundation.js'
   :javascript
     $(function(){ $(document).foundation(); });
