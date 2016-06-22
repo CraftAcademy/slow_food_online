@@ -15,7 +15,7 @@ Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_text(text)
 end
 
-Then(/^I should see the "([^"]*)" drop list$/) do |id|
+Then(/^I should see the "([^"]*)"$/) do |id|
   find_by_id(id)
 end
 

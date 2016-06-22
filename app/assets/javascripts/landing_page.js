@@ -11,7 +11,6 @@ $(document).ready(function () {
             dataType: "json",
             url: '/search_restaurants?category=' + cat,
             success: function (response) {
-                console.log(response);
                 displayMatches(response);
             }
         });

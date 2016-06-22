@@ -33,3 +33,7 @@ Feature: As a visitor
     When I select "Chinese" from "category"
     Then I should see "You have selected Chinese"
     And I should see "China Palace"
+
+  Scenario: See map
+    Given I am on the "home page"
+    Then I should see the "map"
