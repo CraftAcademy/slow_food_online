@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :rememberable, :trackable, :validatable
 
   has_one :restaurant
 
@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :role
   validates :role, inclusion: { in: PERMITTED_ROLES,
                                message: '%{value} is not permitted'}
+  validates_format_of :email, with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
   def admin?
     self.role == 'admin'

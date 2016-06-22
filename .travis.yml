@@ -23,3 +23,7 @@ deploy:
     secure: DjYGlw798UCdYmrkyAEAtExCvQKbxhycJ9vqr6/vbf9hYBgQ7JAF8Scfv5DfbTkG7VjUhw9z9kgM/4gsycsdN8A0/KsUIyRmVxq4Z81meILX/aP6JauqsYWmjp1vkbBsqFGY/BT9dWGTcG8WsPgXMDFkw5dqX4U5rRjH9S9n1jFuvn20uiDNXFoCRKlfbbqv3pzbrUoiNoAnag25ZsezLaAbgyXg7LajDnnNJfFrmG4eRbfuOF0BJjvMm6B0Tc030DnDAZYa05UZbj1Sxm38qwKUw9HuiakHbCkdCJ24QDgywE/woU01eYGnNjqUnKMhemQfQHoajZcJGNc9KwJsCJNP33SchFKwiqhBwxMvzNe8bYUoZZGY997oEcq1WL4lHw7tOgSK0NwuJmKq25diTikCY6Csv67mFHuxoAjH+Jwd+6+Hz2oM3XL0fDbEEzJgGlD9YMk+dcdI6QR9TdZN1YQagWtgs4q4BJxXhT+wMtZ2nd2q1ycHCafny7bv0rk/V4l+ZRaBglSvCOWKG/C+Llm1j1aPk1LsSRavxvAfbrvNsTkfhpcSkitkS1/VCzfxQy0IOk6I2Zc5PqQm/Ryr9W6qTnLSLvrHouiOfPUxKgKAPteGI5k8l5/2HInXODcLz2UjdvmVMfxbFEsxnHKPlTrzis3BABawNOAAXCsIDUQ=
   app: sf-development
   on: development
+after_deploy:
+  run:
+    - "rake db:migrate"
+    - "rake db:seed"
