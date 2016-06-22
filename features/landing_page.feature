@@ -23,7 +23,7 @@ Feature: As a visitor
   Scenario: Choose Samoan
     Given I am on the "home page"
     When I select "Samoan" from "category"
-    Then I should see "You have selected Samoan"
+    Then I should see "Samoan joints near you"
     And I should see "Calles Kitchen"
     And I should see "Pizza Place"
 
@@ -31,7 +31,7 @@ Feature: As a visitor
   Scenario: Choose Chinese
     Given I am on the "home page"
     When I select "Chinese" from "category"
-    Then I should see "You have selected Chinese"
+    Then I should see "Chinese joints near you"
     And I should see "China Palace"
 
   Scenario: See map

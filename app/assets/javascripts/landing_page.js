@@ -1,8 +1,9 @@
 $(document).ready(function () {
     $("#category").change(function () {
+        modifyPage();
         $("select option:selected").each(function () {
             var value = $(this).text();
-            var message = "You have selected " + value;
+            var message = value + " joints near you";
             $('#selection').html(message);
         });
         $('#list').html('');
@@ -26,4 +27,8 @@ function displayMatches(json) {
             $('#list').append('<p>' + val.name + '</p>');
         });
     }
+}
+
+function modifyPage() {
+    $('#results').css('height','auto');
 }
