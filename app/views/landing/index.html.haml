@@ -4,5 +4,6 @@
   = select_tag(:category, options_for_select(categories_for_select))
   #selection
   #list
+%input.controls(id="pac-input" type="text" placeholder="Where are you?")
 #map
-%script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLlFOiBK4ncqm_t4-QPo_-VmhD84MNhHc&callback=initMap" async defer)
+%script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLlFOiBK4ncqm_t4-QPo_-VmhD84MNhHc&libraries=places&callback=initMap" async defer)
