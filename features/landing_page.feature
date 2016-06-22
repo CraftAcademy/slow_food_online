@@ -37,3 +37,7 @@ Feature: As a visitor
   Scenario: See map
     Given I am on the "home page"
     Then I should see the "map"
+
+  Scenario: Needle appears after searching
+    Given I am on the "home page"
+    And I fill in "pac-input" with "Stockholm"
