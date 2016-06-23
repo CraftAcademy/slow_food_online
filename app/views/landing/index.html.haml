@@ -6,14 +6,13 @@
       #box
         .row
           .large-6.columns
-            = select_tag(:category, options_for_select(categories_for_select))
+            = select_tag(:category, options_for_select(categories_for_select), class: 'left')
           .large-6.columns
-            %input.controls(id="pac-input" type="text" placeholder="Where are you?")
+            %input.controls.right(id="pac-input" type="text" placeholder="Where are you?")
 %section.row
-  .small-12.columns
-    #results
-      #selection
-      #list
+  #results
+    #selection
+    #list
 
 = javascript_include_tag 'gmaps', 'data-turbolinks-track' => true
 = javascript_include_tag 'google_map', 'data-turbolinks-track' => true

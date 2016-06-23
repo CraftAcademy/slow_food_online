@@ -24,7 +24,6 @@ function displayMatches(json) {
     } else {
         var list = $("#list").append('<ul></ul>').find('ul');
         $.each(json.matches, function (i, val) {
-            //console.log(val);
             list.append("<li><a href='/restaurants/" + val.id + "'>" + val.name + "</a>");
             list.append("<img src='https://placeholdit.imgix.net/~text?txtsize=12&txt=" + val.name + "&w=150&h=100'>");
             list.append("<p>" + val.description + "<br/>");
