@@ -40,4 +40,4 @@ Feature: As a visitor
 
   Scenario: Display address input
     Given I am on the "home page"
-    And I should see the "pac-input"
+    Then I should see the "pac-input"
