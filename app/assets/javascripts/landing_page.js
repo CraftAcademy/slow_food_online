@@ -34,21 +34,8 @@ function displayMatches(json) {
         var count = $('#list ul').children("li").length;
         var height = count * 230 + 'px';
         modifyPage(height);
-        showMarkers(json.matches);
+        addRestaurantMarkers(json.matches);
     }
-}
-
-function showMarkers(data) {
-    // hitta map objektet
-    //console.log(initMap(data));
-    // skapa markers och uppdatera map
-   // data.forEach(function(restaurant){
-
-        //marker = new google.maps.Marker({
-        //    position: new google.maps.LatLng(restaurant.latitude, restaurant.longitude),
-        //    map: map
-        //});
-   // })
 }
 
 
