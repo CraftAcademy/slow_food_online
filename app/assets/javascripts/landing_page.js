@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $("#category").change(function () {
-        modifyPage();
         $("select option:selected").each(function () {
             var value = $(this).text();
             var message = value + " joints near you";
@@ -28,12 +27,14 @@ function displayMatches(json) {
             console.log(val);
             list.append("<li><a href='/restaurants/" + val.id + "'>" + val.name + "</a></li>");
         });
+        var count = $('#list ul').children("li").length;
+        var height = count * 80 + 'px';
+        modifyPage(height);
     }
 }
 
-function modifyPage() {
-    var count = $('#list ul').children("li").length;
-    var height = count * 100 + 'px';
+function modifyPage(height) {
+
     $('#results').css('height', height).css('z-index','10');
 
 }
