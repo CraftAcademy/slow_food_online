@@ -37,3 +37,7 @@ Feature: As a visitor
   Scenario: See map
     Given I am on the "home page"
     Then I should see the "map"
+
+  Scenario: Display address input
+    Given I am on the "home page"
+    Then I should see the "pac-input"
