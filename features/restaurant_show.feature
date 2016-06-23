@@ -19,3 +19,6 @@ Feature: As a visitor, when I have made my selection
     Given I am on the "home page"
     And I select "Chinese" from "category"
     Then I should see link "China Palace"
+    When I click the "China Palace" link
+    Then I should be on the show page for "China Palace"
+    Then show me the page

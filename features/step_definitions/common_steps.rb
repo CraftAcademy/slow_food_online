@@ -1,12 +1,12 @@
 Given(/^I am on the "([^"]*)"$/) do |page|
   case page
-    when "home page" then
+    when 'home page' then
       visit root_path
-    when "login page" then
+    when 'login page' then
       visit new_user_session_path
-    when "sign up page" then
+    when 'sign up page' then
       visit new_user_registration_path
-    when "Forgot password page" then
+    when 'Forgot password page' then
       visit new_user_password_path
   end
 end
@@ -20,7 +20,7 @@ Then(/^I should see the "([^"]*)"$/) do |id|
 end
 
 When(/^I select "([^"]*)" from "([^"]*)"$/) do |value, field|
-  select(value, :from => field)
+  select(value, from: field)
 end
 
 
@@ -42,15 +42,19 @@ Then(/^show me the page$/) do
   save_and_open_page
 end
 
-Then(/^I click "([^"]*)"$/) do |value|
+When(/^I click "([^"]*)"$/) do |value|
   click_link_or_button(value)
+end
+
+When(/^I click the "([^"]*)" link$/) do |link|
+  find_link(link).trigger('click')
 end
 
 Then(/^I should be on the "([^"]*)"$/) do |page|
   case page
-    when "home page" then
+    when 'home page' then
       expect(current_path).to eq root_path
-    when "login page" then
+    when 'login page' then
       expect(current_path).to eq new_user_session_path
   end
 end
@@ -63,3 +67,9 @@ end
 Then(/^I should see link "([^"]*)"$/) do |link|
   expect(page).to have_link link
 end
+
+Then(/^I should be on the show page for "([^"]*)"$/) do |name|
+  restaurant = Restaurant.find_by(name: name)
+  expect(current_path).to eq restaurant_path(restaurant)
+end
+
