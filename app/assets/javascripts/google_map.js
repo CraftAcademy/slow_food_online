@@ -9,6 +9,12 @@ function initMap() {
 
 }
 
+$('#pac-input').blur(function(){
+    var address;
+    address = $('#pac-input').val();
+    getAddress(address);
+});
+
 
 var generateMap = function (latitude, longitude) {
     map = new GMaps({
@@ -17,7 +23,12 @@ var generateMap = function (latitude, longitude) {
         lng: longitude,
         zoom: 12,
         zoomControl: true,
-        disableDefaultUI: true
+        disableDefaultUI: true,
+        click: function(e) {
+            var lat = e.latLng.lat();
+            var lng = e.latLng.lng();
+            map.setCenter(lat, lng);
+        }
     });
 };
 
@@ -37,6 +48,8 @@ var gold_star = {
     strokeColor: 'gold',
     strokeWeight: 1
 };
+
+
 
 function addUser(lat, lng) {
     map.addMarker({
@@ -73,4 +86,20 @@ function getRestInfo(object) {
     message += '<p>' + object.address + '</p>';
     message += '<p>Phone: ' + object.phone + '</p>';
     return message;
+}
+
+function getAddress(address){
+    GMaps.geocode({
+        address: address,
+        callback: function (results, status) {
+            if (status === 'OK') {
+                var latlng  = results[0].geometry.location;
+                map.setCenter(latlng.lat(), latlng.lng());
+            }
+            else {
+                console.log('no results')
+            }
+        }
+    });
+
 }
