@@ -47,6 +47,7 @@ When(/^I click "([^"]*)"$/) do |value|
 end
 
 When(/^I click the "([^"]*)" link$/) do |link|
+  Capybara.default_wait_time = 120
   find_link(link).trigger('click')
 end
 
@@ -69,7 +70,8 @@ Then(/^I should see link "([^"]*)"$/) do |link|
 end
 
 Then(/^I should be on the show page for "([^"]*)"$/) do |name|
+  sleep(2)
   restaurant = Restaurant.find_by(name: name)
-  expect(current_path).to eq restaurant_path(restaurant)
+  expect(page.current_path).to eq restaurant_path(restaurant)
 end
 
