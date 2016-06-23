@@ -58,3 +58,8 @@ end
 Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
 end
+
+
+Then(/^I should see link "([^"]*)"$/) do |link|
+  expect(page).to have_link link
+end
