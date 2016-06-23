@@ -1,5 +1,5 @@
 function initMap() {
-  var mapDiv = document.getElementById('map');
+  var mapDiv = $('#map')[0];
   var map = new google.maps.Map(mapDiv, {
     center: {lat: 59.3293235, lng: 18.0685808},
     zoom: 8
@@ -22,7 +22,7 @@ function initMap() {
     } else {
       handleLocationError(false, infoWindow, map.getCenter());
     }
-    var input = document.getElementById('pac-input');
+    var input = $('#pac-input')[0];
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
