@@ -3,7 +3,7 @@ $(document).ready(function () {
         $("select option:selected").each(function () {
             var value = $(this).text();
             var message = value + " joints near you";
-            $('#selection').html(message);
+            $('#selection').html('<h3>' + message + '</h3>');
         });
         $('#list').html('');
         var cat = $('#category option:selected').val();
@@ -32,14 +32,15 @@ function displayMatches(json) {
             list.append("</li>");
         });
         var count = $('#list ul').children("li").length;
-        var height = count * 150 + 'px';
+        var height = count * 230 + 'px';
         modifyPage(height);
     }
 }
 
 
 function modifyPage(height) {
-
-    $('#results').css('height', height).css('z-index', '10');
-
+    //$('#results').css('height', height);
+    $('#results').css('min-height', height)
+        .css('z-index', '10')
+        .css('margin-bottom', '50px');
 }
