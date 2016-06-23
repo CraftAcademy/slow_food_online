@@ -24,7 +24,7 @@ function displayMatches(json) {
     } else {
         var list = $("#list").append('<ul></ul>').find('ul');
         $.each(json.matches, function (i, val) {
-            console.log(val);
+            //console.log(val);
             list.append("<li><a href='/restaurants/" + val.id + "'>" + val.name + "</a>");
             list.append("<img src='https://placeholdit.imgix.net/~text?txtsize=12&txt=" + val.name + "&w=150&h=100'>");
             list.append("<p>" + val.description + "<br/>");
@@ -34,7 +34,21 @@ function displayMatches(json) {
         var count = $('#list ul').children("li").length;
         var height = count * 230 + 'px';
         modifyPage(height);
+        showMarkers(json.matches);
     }
+}
+
+function showMarkers(data) {
+    // hitta map objektet
+    //console.log(initMap(data));
+    // skapa markers och uppdatera map
+   // data.forEach(function(restaurant){
+
+        //marker = new google.maps.Marker({
+        //    position: new google.maps.LatLng(restaurant.latitude, restaurant.longitude),
+        //    map: map
+        //});
+   // })
 }
 
 
@@ -44,3 +58,4 @@ function modifyPage(height) {
         .css('z-index', '10')
         .css('margin-bottom', '50px');
 }
+

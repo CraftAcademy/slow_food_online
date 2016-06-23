@@ -72,7 +72,9 @@ function initMap() {
         });
         map.fitBounds(bounds);
     });
+
 }
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -81,6 +83,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
 }
 
+
+function getRestaurants() {
+    $.ajax({
+        dataType: "json",
+        url: '/search_restaurants?category=3',
+        success: function (response) {
+            return response.matches;
+        }
+    });
+}
 
 var styles = [
     {
