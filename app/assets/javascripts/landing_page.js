@@ -6,14 +6,8 @@ $(document).ready(function () {
             $('#selection').html('<h3>' + message + '</h3>');
         });
         $('#list').html('');
-        var cat = $('#category option:selected').val();
-        $.ajax({
-            dataType: "json",
-            url: '/search_restaurants?category=' + cat,
-            success: function (response) {
-                displayMatches(response);
-            }
-        });
+
+        queryForRestaurants();
     });
 });
 
@@ -45,3 +39,14 @@ function modifyPage(height) {
         .css('margin-bottom', '50px');
 }
 
+function queryForRestaurants () {
+    var cat = $('#category option:selected').val();
+    var center = map.getCenter();
+    $.ajax({
+        dataType: "json",
+        url: '/search_restaurants?category=' + cat + '&lat=' + center.lat() + '&lng=' + center.lng() ,
+        success: function (response) {
+            displayMatches(response);
+        }
+    });
+}

@@ -51,6 +51,7 @@ function displayLocation(location) {
             if (status === 'OK') {
                 var latlng = results[0].geometry.location;
                 map.setCenter(latlng.lat(), latlng.lng());
+                queryForRestaurants();
             }
             else {
                 // Add error handler?
