@@ -8,15 +8,14 @@
           .large-6.columns
             = select_tag(:category, options_for_select(categories_for_select), class: 'left')
           .large-6.columns
-            %input.controls.right(id="pac-input" type="text" placeholder="Where are you?")
+            %input.right(id="pac-input" type="text" placeholder="Where are you?")
 %section.row
   #results
     #selection
     #list
-
+%script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLlFOiBK4ncqm_t4-QPo_-VmhD84MNhHc&libraries=places&callback=initMap" async defer)
 = javascript_include_tag 'gmaps', 'data-turbolinks-track' => true
 = javascript_include_tag 'google_map', 'data-turbolinks-track' => true
 = javascript_include_tag 'landing_page', 'data-turbolinks-track' => true
-%script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLlFOiBK4ncqm_t4-QPo_-VmhD84MNhHc&libraries=places&callback=initMap" async defer)
 
 
