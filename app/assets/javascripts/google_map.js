@@ -79,7 +79,6 @@ function addUser(lat, lng) {
 }
 
 function addRestaurantMarkers(data) {
-    console.log(data);
     map.removeMarkers();
     data.forEach(function (rest) {
         map.addMarker({
@@ -119,7 +118,7 @@ var proximity_5 = {
 
 
 function getRestInfo(object) {
-    message = "<h4><a href='/restaurants/" + val.id + "'>" + val.name + "</a></h4>";
+    message = "<h4><a href='/restaurants/" + object.id + "'>" + object.name + "</a></h4>";
     message += '<p>' + object.address + '</p>';
     message += '<p>Phone: ' + object.phone + '</p>';
     return message;
