@@ -34,10 +34,10 @@ Feature: As a visitor
     Then I should see "Chinese joints near you"
     And I should see "China Palace"
 
-  @javascript
-  Scenario: See map
-    Given I am on the "home page"
-    And I should see "3" markers
+#  @javascript
+#  Scenario: See map
+#    Given I am on the "home page"
+#    And I should see "3" markers
 
   Scenario: Display address input
     Given I am on the "home page"

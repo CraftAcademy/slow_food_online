@@ -19,9 +19,6 @@ function generateMap(latitude, longitude) {
         zoom: 12,
         zoomControl: true,
         disableDefaultUI: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.TOP_RIGHT
-        },
         click: function (e) {
             var lat = e.latLng.lat();
             var lng = e.latLng.lng();
