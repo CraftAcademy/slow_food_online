@@ -1,11 +1,12 @@
 class LandingController < ApplicationController
   def index
     @restaurant_categories = RestaurantCategory.all
-    @restaurants = Restaurant.where(restaurant_category: params[:category]) if params[:category]
   end
 
   def search_restaurants
-    @restaurants = Restaurant.where(restaurant_category: params[:category]) if params[:category]
+    # Restaurant.near([lat, lng], 20).size
+    lat, lng = 59.3293235, 18.0685808
+    @restaurants = Restaurant.near([lat, lng], 20).where(restaurant_category: params[:category])
     render json: {matches: @restaurants}
   end
 end

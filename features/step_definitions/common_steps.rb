@@ -15,6 +15,10 @@ Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_text(text)
 end
 
+And(/^I should not see "([^"]*)"$/) do |text|
+  expect(page).not_to have_text(text)
+end
+
 Then(/^I should see the "([^"]*)"$/) do |id|
   find_by_id(id)
 end
@@ -83,3 +87,4 @@ end
 Then(/^I should see "([^"]*)" markers$/) do |count|
   expect(page).to have_selector('#markers img', count: count)
 end
+
