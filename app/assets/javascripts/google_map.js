@@ -10,14 +10,18 @@ function initMap() {
 
 }
 
-var generateMap = function (latitude, longitude) {
+function generateMap(latitude, longitude) {
     map = new GMaps({
         div: '#map',
         lat: latitude,
         lng: longitude,
+        styles: styles,
         zoom: 12,
         zoomControl: true,
         disableDefaultUI: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
         click: function(e) {
             var lat = e.latLng.lat();
             var lng = e.latLng.lng();
@@ -26,7 +30,7 @@ var generateMap = function (latitude, longitude) {
     });
 };
 
-var checkForManualLocation = function (){
+function checkForManualLocation(){
     var input = $('#pac-input')[0];
     var searchBox = new google.maps.places.SearchBox(input);
     searchBox.addListener('places_changed', function () {
@@ -60,26 +64,6 @@ function displayLocation(location){
     });
 }
 
-var gold_star = {
-    path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
-    fillColor: 'green',
-    fillOpacity: 0.8,
-    scale: 0.1,
-    strokeColor: 'gold',
-    strokeWeight: 1
-};
-
-var proximity_5 = {
-    path: 'M0,50 A50,50,0 1 1 100,50 A50,50,0 1 1 0,50 Z',
-    fillColor: 'blue',
-    fillOpacity: 0.2,
-    scale: 2,
-    strokeColor: 'blue',
-    strokeWeight: 0
-};
-
-
-
 function addUser(lat, lng) {
     map.addMarker({
         lat: lat,
@@ -105,11 +89,36 @@ function addRestaurantMarkers(data){
             title: rest.name,
             infoWindow: {
                 content: getRestInfo(rest)
+            },
+            click: function() {
+                map.setCenter(rest.latitude, rest.longitude);
             }
 
         });
     })
 }
+
+// Display elements
+
+var gold_star = {
+    path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+    fillColor: 'green',
+    fillOpacity: 0.8,
+    scale: 0.1,
+    strokeColor: 'gold',
+    strokeWeight: 1
+};
+
+// Not used atm, prototype of a proximity radius display for future use.
+var proximity_5 = {
+    path: 'M0,50 A50,50,0 1 1 100,50 A50,50,0 1 1 0,50 Z',
+    fillColor: 'blue',
+    fillOpacity: 0.2,
+    scale: 2,
+    strokeColor: 'blue',
+    strokeWeight: 0
+};
+
 
 function getRestInfo(object) {
     message = '<h4>' + object.name +'</h4>';
@@ -118,4 +127,68 @@ function getRestInfo(object) {
     return message;
 }
 
+var styles = [
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {"color": "#62a905"}
+        ]
+    }, {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {"color": "#F9F9F9"}
+        ]
+    }, {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {"weight": 0.5}
+        ]
+    }, {
+        "featureType": "road.arterial",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {"weight": 0.5}
+        ]
+    }, {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {"weight": 0.2}
+        ]
+    }, {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {"weight": 0.1},
+            {"color": "#362009"}
+        ]
+    }, {
+        "featureType": "road",
+        "elementType": "labels.icon",
+        "stylers": [
+            {"visibility": "off"}
+        ]
+    }, {
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {"color": "#EEEEEE"}
+        ]
+    }, {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {"visibility": "off"}
+        ]
+    }, {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {"visibility": "off"}
+        ]
+    }
+];
 
