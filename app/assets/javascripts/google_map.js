@@ -22,7 +22,7 @@ function generateMap(latitude, longitude) {
         zoomControlOptions: {
             position: google.maps.ControlPosition.TOP_RIGHT
         },
-        click: function(e) {
+        click: function (e) {
             var lat = e.latLng.lat();
             var lng = e.latLng.lng();
             map.setCenter(lat, lng);
@@ -30,7 +30,7 @@ function generateMap(latitude, longitude) {
     });
 };
 
-function checkForManualLocation(){
+function checkForManualLocation() {
     var input = $('#pac-input')[0];
     var searchBox = new google.maps.places.SearchBox(input);
     searchBox.addListener('places_changed', function () {
@@ -43,17 +43,16 @@ function fetchBrowserLocation(callback) {
     navigator.geolocation.getCurrentPosition(function (position) {
         var browserCoordinates;
         browserCoordinates = {lat: position.coords.latitude, lng: position.coords.longitude};
-        //console.log(browserCoordinates);
         callback(browserCoordinates);
     });
 }
 
-function displayLocation(location){
+function displayLocation(location) {
     GMaps.geocode({
         address: location,
         callback: function (results, status) {
             if (status === 'OK') {
-                var latlng  = results[0].geometry.location;
+                var latlng = results[0].geometry.location;
                 map.setCenter(latlng.lat(), latlng.lng());
             }
             else {
@@ -79,10 +78,10 @@ function addUser(lat, lng) {
     map.setCenter(59.3293235, 18.0685808);
 }
 
-function addRestaurantMarkers(data){
+function addRestaurantMarkers(data) {
     console.log(data);
     map.removeMarkers();
-    data.forEach(function(rest){
+    data.forEach(function (rest) {
         map.addMarker({
             lat: rest.latitude,
             lng: rest.longitude,
@@ -90,10 +89,9 @@ function addRestaurantMarkers(data){
             infoWindow: {
                 content: getRestInfo(rest)
             },
-            click: function() {
+            click: function () {
                 map.setCenter(rest.latitude, rest.longitude);
             }
-
         });
     })
 }
@@ -121,7 +119,7 @@ var proximity_5 = {
 
 
 function getRestInfo(object) {
-    message = '<h4>' + object.name +'</h4>';
+    message = "<h4><a href='/restaurants/" + val.id + "'>" + val.name + "</a></h4>";
     message += '<p>' + object.address + '</p>';
     message += '<p>Phone: ' + object.phone + '</p>';
     return message;

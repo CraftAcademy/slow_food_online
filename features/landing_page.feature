@@ -34,9 +34,9 @@ Feature: As a visitor
     Then I should see "Chinese joints near you"
     And I should see "China Palace"
 
+  @javascript
   Scenario: See map
     Given I am on the "home page"
-    Then I should see the "map"
     And I should see "3" markers
 
   Scenario: Display address input
