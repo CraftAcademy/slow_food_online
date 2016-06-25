@@ -11,3 +11,4 @@ vendor/assets/bower_components/
 
 /.bundle
 /vendor/bundle
+screenshot_*

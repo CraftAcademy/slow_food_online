@@ -37,11 +37,18 @@ function checkForManualLocation() {
 };
 
 function fetchBrowserLocation(callback) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    var testing_env = $('#map').data('test-env');
+    if(testing_env == false) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var browserCoordinates;
+            browserCoordinates = {lat: position.coords.latitude, lng: position.coords.longitude};
+            callback(browserCoordinates);
+        });
+    } else {
         var browserCoordinates;
-        browserCoordinates = {lat: position.coords.latitude, lng: position.coords.longitude};
+        browserCoordinates = {lat: 59.3293235, lng: 18.0685808};
         callback(browserCoordinates);
-    });
+    }
 }
 
 function displayLocation(location) {

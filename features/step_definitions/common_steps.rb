@@ -56,7 +56,6 @@ When(/^I click "([^"]*)"$/) do |value|
 end
 
 When(/^I click the "([^"]*)" link$/) do |link|
-  Capybara.default_wait_time = 120
   find_link(link).trigger('click')
 end
 
