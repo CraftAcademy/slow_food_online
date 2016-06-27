@@ -1,12 +1,13 @@
 $(document).ready(function () {
     $("#category").change(function () {
+        $('#list').html('');
+        $('#selection').html('');
+
         $("select option:selected").each(function () {
             var value = $(this).text();
             var message = value + " joints near you";
             $('#selection').html('<h3>' + message + '</h3>');
         });
-        $('#list').html('');
-
         queryForRestaurants();
     });
 });
