@@ -8,6 +8,8 @@ Given(/^I am on the "([^"]*)"$/) do |page|
       visit new_user_registration_path
     when 'Forgot password page' then
       visit new_user_password_path
+    when 'dish list page' then
+      visit dishes_path
   end
 end
 
@@ -72,7 +74,6 @@ Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
 end
 
-
 Then(/^I should see link "([^"]*)"$/) do |link|
   expect(page).to have_link link
 end
@@ -83,7 +84,6 @@ Then(/^I should be on the show page for "([^"]*)"$/) do |name|
   expect(page.current_path).to eq restaurant_path(restaurant)
 end
 
-Then(/^I should see "([^"]*)" markers$/) do |count|
-  expect(page).to have_selector('#markers img', count: count)
+Given(/^I click on "([^"]*)"$/) do |component|
+  click_link_or_button(component)
 end
-

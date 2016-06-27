@@ -1,0 +1,22 @@
+.row
+  .small-3.small-centered.columns
+
+  %p#notice= notice
+  %p
+    %img{src: @dish.img_url}
+  %p
+    %b Name:
+    = @dish.name
+  %p
+    %b allergy_info:
+    = @dish.allergy_info
+  %p
+    %b Price:
+    = @dish.price
+  %p
+    %b Calories:
+    = @dish.calories
+
+  = link_to 'Edit', edit_dish_path(@dish)
+  \|
+  = link_to 'Back', dishes_path

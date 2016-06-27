@@ -1,0 +1,31 @@
+.row
+  .small-3.small-centered.columns
+
+  %h1 Dishes
+
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Alergy Information
+        %th Price
+        %th Calories
+        %th Image
+        %th
+        %th
+        %th
+
+    %tbody
+      - @dishes.each do |dish|
+        %tr
+          %td= link_to dish.name, dish
+          %td= dish.allergy_info
+          %td= dish.price
+          %td= dish.calories
+          %td= link_to image_tag(dish.img_url)
+          %td= link_to 'Edit', edit_dish_path(dish)
+          %td= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Dish', new_dish_path

@@ -6,6 +6,8 @@
 Slow Food Online is a collaboration between 5 great minds, which attempts to fill the apparent void of user-friendly,
 interactive and well designed food ordering services here in the [Kingdom of Sweden](https://en.wikipedia.org/wiki/Sweden).
 
+If you'd like a firsthand look at the project while it's being developed, check out our dev-deployment on [Heroku!](http://sf-development.herokuapp.com/)
+
 ##Tools and technologies
 
 For this project we've used a bunch of quality tools and technologies which have aided us in the creation
@@ -35,7 +37,7 @@ and delivery of this project.
 ## Installing
 Fork and Clone this repo.
 
-Once the source is on your machine run the following commands to install all the necessary packages and gems
+Once the source is on your machine run the following commands to install all the necessary packages and gems:
 
 ```
 $ bundle install
@@ -47,10 +49,8 @@ $ rake db:seed
 ```
 
 ## Collaborators
-**Core team**: 
 * [Yan](https://github.com/flamesoft)
 * [Daniel](https://github.com/DanielitoAlbinsson)
 * [Carl-Philip](https://github.com/callea2)
-
 * [Raoul](https://github.com/diraulo)
 * [Thomas](https://github.com/tochman)
