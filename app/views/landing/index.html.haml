@@ -1,21 +1,22 @@
 %section
-  #map{data: {test: {env: "#{Rails.env.test?}"}}}
+  #map
   #search.outer
     .inner
       %h2.content(align="center") What do you feel like tonight?
       #box
         .row
           .large-6.columns
-            = select_tag(:category, options_for_select(categories_for_select), class: 'left')
+            = select_tag(:category, options_for_select(categories_for_select))
           .large-6.columns
-            %input.right(id="pac-input" type="text" placeholder="Where are you?")
+            %input.controls(id="pac-input" type="text" placeholder="Where are you?")
 %section.row
-  #results
-    #selection
-    #list
+  .small-12.columns
+    #results
+      #selection
+      #list
+
+
+
+
+
 %script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLlFOiBK4ncqm_t4-QPo_-VmhD84MNhHc&libraries=places&callback=initMap" async defer)
-= javascript_include_tag 'gmaps', 'data-turbolinks-track' => true
-= javascript_include_tag 'google_map', 'data-turbolinks-track' => true
-= javascript_include_tag 'landing_page', 'data-turbolinks-track' => true
-
-

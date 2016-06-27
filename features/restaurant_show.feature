@@ -9,10 +9,10 @@ Feature: As a visitor, when I have made my selection
       | Chinese |
 
     Given the following restaurants exist
-      | name             | category | latitude   | longitude  |
-      | Calles Kitchen   | Samoan   | 59.3716664 | 18.2061587 |
-      | Pizza Place      | Samoan   | 59.1159593 | 18.2529808 |
-      | China Palace     | Chinese  | 59.1151555 | 18.2538833 |
+      | name           | category |
+      | Calles Kitchen | Samoan   |
+      | Pizza Place    | Samoan   |
+      | China Palace   | Chinese  |
 
   @javascript
   Scenario: Choose Chinese

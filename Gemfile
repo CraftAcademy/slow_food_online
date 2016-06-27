@@ -25,7 +25,6 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
-  gem 'capybara-screenshot'
 end
 
 group :development do

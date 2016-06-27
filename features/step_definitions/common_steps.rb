@@ -15,10 +15,6 @@ Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_text(text)
 end
 
-And(/^I should not see "([^"]*)"$/) do |text|
-  expect(page).not_to have_text(text)
-end
-
 Then(/^I should see the "([^"]*)"$/) do |id|
   find_by_id(id)
 end
@@ -38,12 +34,7 @@ end
 Given(/^the following restaurants exist$/) do |table|
   table.hashes.each do |restaurant|
     category = RestaurantCategory.find_by(title: restaurant[:category])
-    rest = FactoryGirl.build(:restaurant,
-    name: restaurant[:name],
-    restaurant_category: category,
-    latitude: restaurant[:latitude],
-    longitude: restaurant[:longitude])
-    rest.save(validate: false)
+    FactoryGirl.create(:restaurant, name: restaurant[:name], restaurant_category: category)
   end
 end
 
@@ -56,6 +47,7 @@ When(/^I click "([^"]*)"$/) do |value|
 end
 
 When(/^I click the "([^"]*)" link$/) do |link|
+  Capybara.default_wait_time = 120
   find_link(link).trigger('click')
 end
 
@@ -81,9 +73,5 @@ Then(/^I should be on the show page for "([^"]*)"$/) do |name|
   sleep(2)
   restaurant = Restaurant.find_by(name: name)
   expect(page.current_path).to eq restaurant_path(restaurant)
-end
-
-Then(/^I should see "([^"]*)" markers$/) do |count|
-  expect(page).to have_selector('#markers img', count: count)
 end
 
