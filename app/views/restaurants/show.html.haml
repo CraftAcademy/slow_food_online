@@ -1,2 +1,7 @@
-%h1 Restaurants#show
-%p Find me in app/views/restaurants/show.html.haml
+%h1= @rest.name
+- @menus.each do |menu|
+  = link_to menu.name, dishes_path(menu: menu)
+
+-# menu_list.each do |menu_item|
+  =# link_to menu_item[:name], dishes_path
+  -# @selected_menu = menu_item
