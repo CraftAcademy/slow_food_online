@@ -40,4 +40,3 @@ $(document).ready(function () {
 $(window).resize(function () {
     fixedFooter();//at page resize
 });
-

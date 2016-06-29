@@ -15,11 +15,28 @@ def create_restaurant(args = {})
   lat = rand(59.0000001..59.4000009).round(7)
   lon = rand(18.0000001..18.4000009).round(7)
   rest = Restaurant.new(name: name,
-                    description: description,
-                    address: address,
-                    phone: phone_number,
-                    restaurant_category: cat,
-                    latitude: lat,
-                    longitude: lon)
+                        description: description,
+                        address: address,
+                        phone: phone_number,
+                        restaurant_category: cat,
+                        latitude: lat,
+                        longitude: lon)
   rest.save(validate: false)
+end
+
+def build_menus_with_dishes(menu_names)
+  Restaurant.all.each do |restaurant|
+    menu_names.each do |menu_name|
+      menu = Menu.create(name: menu_name, restaurant: restaurant)
+      3.times { |i| add_dish(i + 1, menu) }
+    end
+  end
+end
+
+def add_dish(number, menu)
+  price = rand(20..60)
+  prefix = menu.restaurant.restaurant_category.title
+  Dish.create(name: "#{prefix} Dish#{number}",
+              price: price,
+              menu: menu)
 end
