@@ -8,6 +8,8 @@ Given(/^I am on the "([^"]*)"$/) do |page|
       visit new_user_registration_path
     when 'Forgot password page' then
       visit new_user_password_path
+    when 'upload page' then
+      visit new_upload_path
   end
 end
 

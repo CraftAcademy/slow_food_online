@@ -1,0 +1,8 @@
+%h1 New Upload
+= form_for(@upload) do |f|
+  %div
+    = f.label :name
+    %br
+      = f.file_field :name
+  %div
+    = f.submit
