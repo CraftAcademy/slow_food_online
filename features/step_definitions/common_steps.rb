@@ -8,6 +8,8 @@ Given(/^I am on the "([^"]*)"$/) do |page|
       visit new_user_registration_path
     when 'Forgot password page' then
       visit new_user_password_path
+    when 'checkout page' then
+      visit checkout_path
   end
 end
 
@@ -84,4 +86,8 @@ end
 
 Given(/^I click on "([^"]*)"$/) do |component|
   click_link_or_button(component)
+end
+
+Then(/^I should see the field "([^"]*)"$/) do |field|
+  expect(page).to have_field(field)
 end

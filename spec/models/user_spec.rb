@@ -13,6 +13,15 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :username }
     it { is_expected.to have_db_column :role }
+    it { is_expected.to have_db_column :full_name }
+    it { is_expected.to have_db_column :phone_number }
+    it { is_expected.to have_db_column :street }
+    it { is_expected.to have_db_column :city }
+    it { is_expected.to have_db_column :zip_code }
+    it { is_expected.to have_db_column :cardholder }
+    it { is_expected.to have_db_column :card_number }
+    it { is_expected.to have_db_column :expiration_date }
+    it { is_expected.to have_db_column :cvc }
   end
 
   describe 'Relationships' do
@@ -29,6 +38,13 @@ RSpec.describe User, type: :model do
       it { is_expected.to allow_value('user@example.com').for(:email) }
       it { is_expected.not_to allow_value('user@example').for(:email) }
       it { is_expected.not_to allow_value('123@123').for(:email) }
+    end
+
+    context 'Validate credit card information' do
+      it { is_expected.to allow_value('123').for(:cvc) }
+      it { is_expected.not_to allow_value('12').for(:cvc) }
+      it { is_expected.not_to allow_value('1234').for(:cvc) }
+      it { is_expected.not_to allow_value('a1c').for(:cvc) }
     end
   end
 

@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates :role, inclusion: { in: PERMITTED_ROLES,
                                message: '%{value} is not permitted'}
   validates_format_of :email, with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-
+  validates_format_of :cvc, with: /\A(\d{3})\z/, allow_blank: true
   def admin?
     self.role == 'admin'
   end

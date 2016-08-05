@@ -1,0 +1,31 @@
+.row
+- if @order.total == 0
+  %h3 "Your cart is empty"
+- else
+  .small-3.small-centered.columns
+    %h2 Checkout
+    %li= @items_names
+    %li= "Total price: #{@order.total}kr"
+    = form_for @person, url: checkout_path(@person), html: { method: :post }do |f|
+      .field
+        = f.label :full_name, "Full Name"
+        = f.text_field :full_name, autofocus: true
+        = f.label :phone_number, "Phone Number"
+        = f.text_field :phone_number, maxlength: 10, minlength: 5
+        = f.label :street
+        = f.text_field :street, maxlength: 128
+        = f.label :city
+        = f.text_field :city, maxlength: 16
+        = f.label :zip_code, "Zip Code"
+        = f.text_field :zip_code, maxlength: 6, minlength: 5
+      .field
+        = f.label :cardholder
+        = f.text_field :cardholder
+        = f.label :card_number, "Card Number"
+        = f.text_field :card_number
+        = f.label :expiration_date, "Expiration Date (MM/YY)"
+        = f.text_field :expiration_date, maxlength: 5, minlength: 5
+        = f.label :cvc, "CVC"
+        = f.text_field :cvc, maxlength: 3, minlength: 3
+      .actions
+        = f.submit "Checkout", class: "success button"

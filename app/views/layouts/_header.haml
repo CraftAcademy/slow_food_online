@@ -5,6 +5,7 @@
   %ul.inline-list
     %li= link_to 'Home', root_path
     %li= flash[:notice]
+    %li= flash[:error]
   %ul.inline-list.hide-for-small-only.account-action
     - if user_signed_in?
       %li= link_to "Sign out", destroy_user_session_path, method: :delete
