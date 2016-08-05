@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'restaurants', controller: :restaurants, action: :index, as: :restaurants
       get 'categories', controller: :categories, action: :index, as: :categories
       get 'dishes', controller: :dishes, action: :index, as: :dishes
+      get 'menus', controller: :menus, action: :index, as: :menus
     end
   end
   resources :restaurants, only: [:show]
